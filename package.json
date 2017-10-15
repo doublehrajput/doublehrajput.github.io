@@ -1,0 +1,29 @@
+{
+  "name": "doublehrajput",
+  "version": "1.0.0",
+  "description": "Harish Rajput Portfolio",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/doubleh-rajput/doubleh-rajput.github.io.git"
+  },
+  "keywords": [
+    "Harish",
+    "Rajput",
+    "Portfolio",
+    "Double",
+    "H"
+  ],
+  "author": "Harish Rajput",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/doubleh-rajput/doubleh-rajput.github.io/issues"
+  },
+  "homepage": "https://github.com/doubleh-rajput/doubleh-rajput.github.io#readme",
+  "devDependencies": {
+    "http-server": "^0.10.0"
+  }
+}
