@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS Check</title>
+    <link rel="icon" class="js-site-favicon" type="image/svg+xml"
+        href="https://github.githubassets.com/favicons/favicon.svg">
+
+</head>
+
+<body>
+    <div style="display: flex;align-items: center;align-content: center;justify-content: center;">
+        OTP:&nbsp;
+        <form>
+            <input type="text" autocomplete="one-time-code" inputmode="numeric" id="otp" />
+        </form>
+
+    </div>
+    <script>
+        if ('OTPCredential' in window) {
+            window.addEventListener('DOMContentLoaded', e => {
+                const input = document.querySelector('#otp');
+                if (!input) return;
+                const ac = new AbortController();
+                const form = document.querySelector('form');
+                if (form) {
+                    form.addEventListener('submit', e => {
+                        ac.abort();
+                    });
+                }
+                navigator.credentials.get({
+                    otp: { transport: ['sms'] },
+                    signal: ac.signal
+                }).then(otp => {
+                    input.value = otp.code;
+                    if (form) form.submit();
+                }).catch(err => {
+                    try {
+                        alert(JSON.stringify(err))
+                    } catch (error) {
+                        alert(err)
+                    }
+                });
+            });
+        } else {
+            alert("Alert is not window")
+        }
+    </script>
+</body>
+
+</html>
