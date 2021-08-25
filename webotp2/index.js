@@ -5,7 +5,6 @@ if ('OTPCredential' in window) {
         const ac = new AbortController();
         navigator.credentials.get({
             otp: { transport: ['sms'] },
-            signal: ac.signal
         }).then(otp => {
             alert(otp)
             input.value = otp.code;
