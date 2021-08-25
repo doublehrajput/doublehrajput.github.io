@@ -1,4 +1,4 @@
-if (!'OTPCredential' in window) {
+if ('OTPCredential' in window) {
 
     const input = document.querySelector('input[autocomplete="one-time-code"]');
     const otpField = document.querySelector('#otp-field');
