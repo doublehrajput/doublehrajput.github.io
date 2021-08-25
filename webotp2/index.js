@@ -1,23 +1,28 @@
-if ('OTPCredential' in window) {
+if (!'OTPCredential' in window) {
+
+    const input = document.querySelector('input[autocomplete="one-time-code"]');
+    const otpField = document.querySelector('#otp-field');
+
+
     window.addEventListener('DOMContentLoaded', e => {
-        const input = document.querySelector('#otp');
         if (!input) return;
         const ac = new AbortController();
+        const form = input.closest('form');
+        if (form) {
+            form.addEventListener('submit', e => {
+                ac.abort();
+            });
+        }
         navigator.credentials.get({
             otp: { transport: ['sms'] },
+            signal: ac.signal
         }).then(otp => {
-            alert(otp)
-            input.value = otp.code;
-        }).catch(err => {
-            try {
-                alert(typeof err)
-                alert(JSON.stringify(err))
-                alert(err);
-            } catch (error) {
-                alert(err)
+            otpField.value = otp.code;
+            if (form) {
+                submit();
             }
+        }).catch(err => {
+            console.log(err);
         });
     });
-} else {
-    alert("OTPCredential is not window")
 }
