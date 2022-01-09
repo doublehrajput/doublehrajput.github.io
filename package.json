@@ -1,11 +1,9 @@
 {
   "name": "doubleh-rajput.github.io",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Harish Rajput Resume, Portfolio",
   "private": true,
   "scripts": {
-    "build": "webpack --config webpack/webpack.config.prod.js  --colors",
-    "start": "webpack-dev-server --open --config webpack/webpack.config.dev.js"
   },
   "repository": {
     "type": "git",
