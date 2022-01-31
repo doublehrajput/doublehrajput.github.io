@@ -1,3 +1,4 @@
 {
-  "js/ts.implicitProjectConfig.checkJs": false
+  "js/ts.implicitProjectConfig.checkJs": false,
+  "editor.minimap.enabled": false
 }
